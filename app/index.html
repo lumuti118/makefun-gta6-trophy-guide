@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GTA 6 Trophy Guide &amp; Tracker — Leonida Legend</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <div class="logo" aria-hidden="true">VI</div>
+    <div>
+      <h1>GTA 6 Trophy Guide &amp; Tracker</h1>
+      <p class="tagline">All 55 PlayStation 5 trophies of Grand Theft Auto VI — guide, checklist and roadmap to the platinum. Free, open-source, works offline.</p>
+    </div>
+  </div>
+  <div class="progress" id="progressBox" aria-live="polite">
+    <div class="progress-row"><span id="progressText">0 / 55 earned</span><span id="progressPct">0%</span></div>
+    <div class="bar"><div class="bar-fill" id="progressFill" style="width:0%"></div></div>
+    <div class="grade-counts" id="gradeCounts"></div>
+  </div>
+</header>
+
+<nav class="tabs" role="tablist" aria-label="Views">
+  <button class="tab active" data-view="checklist" role="tab" aria-selected="true">Checklist</button>
+  <button class="tab" data-view="roadmap" role="tab" aria-selected="false">Roadmap to Platinum</button>
+  <button class="tab" data-view="missables" role="tab" aria-selected="false">Missables</button>
+</nav>
+
+<main>
+  <section id="view-checklist" class="view active">
+    <div class="controls">
+      <label class="search">Search <input id="searchBox" type="search" placeholder="Search trophy name or description…" autocomplete="off"></label>
+      <label>Grade
+        <select id="gradeFilter">
+          <option value="all">All grades</option>
+          <option value="platinum">Platinum</option>
+          <option value="gold">Gold</option>
+          <option value="silver">Silver</option>
+          <option value="bronze">Bronze</option>
+        </select>
+      </label>
+      <label>Kind
+        <select id="kindFilter">
+          <option value="all">All kinds</option>
+          <option value="story">Story</option>
+          <option value="missable">Missable</option>
+          <option value="collectibles">Collectibles</option>
+          <option value="activities">Activities</option>
+          <option value="online">Online (0 at launch)</option>
+        </select>
+      </label>
+      <label class="spoiler-toggle"><input id="spoilerToggle" type="checkbox"> Spoiler mode: hide story trophies until earned</label>
+      <span class="spacer"></span>
+      <button id="exportBtn" type="button">Export progress</button>
+      <button id="importBtn" type="button">Import progress</button>
+      <input id="importFile" type="file" accept=".json,application/json" hidden>
+      <button id="resetBtn" type="button" class="danger">Reset</button>
+    </div>
+    <p class="hint" id="countLine">Showing 55 trophies</p>
+    <div class="layout">
+      <div class="list-wrap">
+        <ul class="trophy-list" id="trophyList"></ul>
+      </div>
+      <aside class="detail" id="detailPanel" aria-live="polite">
+        <p class="detail-empty">Click a trophy to read its full guide, with sources.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section id="view-roadmap" class="view">
+    <h2>Roadmap to the Platinum</h2>
+    <p class="lede">One playthrough, in this order. Finish the story, then the side strands, then activities, then collectibles, then cleanup — the platinum pops last. The only trophy that can be missed is flagged in Stage 3: meditate at Jason's house in Chapter 1 before it ends.</p>
+    <div id="roadmapStages"></div>
+  </section>
+
+  <section id="view-missables" class="view">
+    <h2>Missable Trophies</h2>
+    <p class="lede">Only one trophy in GTA 6 can be missed. Everything else can be earned in free roam after the story.</p>
+    <div id="missablesList"></div>
+    <div class="missable-note">
+      <h3>How to stay safe</h3>
+      <p>Keep a manual save slot from Chapter 1. If you finish Chapter 1 without meditating at Jason's house, the only fix is a new playthrough or that early save. Every other trophy in the list can be earned after the final mission, in free roam.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p><strong>Sources for the trophy list and guides:</strong> Push Square, KeenGamer, GTA BOOM, Exophase, PSNProfiles, RetroGems, GTAScoop. Trophy names, descriptions and grades are as PlayStation publishes them; every guide is written in our own words and cites its sources beside it.</p>
+  <p><strong>Online trophies:</strong> 0 at launch — GTA 6 ships with no online trophies. <strong>Hidden trophies:</strong> 22 of the 55 are hidden on PlayStation until earned, mostly story trophies.</p>
+  <p>Unofficial fan guide. Not affiliated with Rockstar Games or PlayStation. No official artwork, logos or game screenshots are used. Grand Theft Auto VI is a trademark of Take-Two Interactive.</p>
+  <p>Data: <code>data/trophies.json</code> — 55 trophies, 1 platinum, 2 gold, 6 silver, 46 bronze. Progress is stored only in your browser (localStorage key <code>gta6-trophy-checklist</code>) and never leaves your device.</p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>

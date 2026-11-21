@@ -1,0 +1,85 @@
+/* GTA 6 Trophy Guide & Tracker — "Leonida Vice" dark theme, CSS only, no images. */
+:root {
+  --bg: #0d0a14;
+  --panel: #171226;
+  --panel2: #1e1830;
+  --line: #332a4d;
+  --text: #f2ecff;
+  --muted: #b3a8cf;
+  --accent: #ff2e88;
+  --accent2: #22d3ee;
+  --gold: #f5c542;
+  --platinum: #7fe3f0;
+  --silver: #c9d1d9;
+  --bronze: #e09a5f;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; line-height: 1.45; }
+.top { display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; padding: 20px 24px 14px; background: linear-gradient(120deg, #2a0f3d, #12082b 55%, #0d2b33); border-bottom: 3px solid var(--accent); }
+.brand { display: flex; gap: 14px; align-items: flex-start; max-width: 640px; }
+.logo { flex: none; width: 58px; height: 58px; display: grid; place-items: center; font-size: 28px; font-weight: 900; color: #fff; background: linear-gradient(135deg, var(--accent), #ff7a3d); border-radius: 12px; }
+h1 { margin: 0; font-size: 26px; line-height: 1.15; }
+.tagline { margin: 6px 0 0; color: var(--muted); font-size: 14px; }
+.progress { min-width: 300px; flex: 1; max-width: 420px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+.progress-row { display: flex; justify-content: space-between; font-weight: 700; }
+.bar { height: 12px; background: #0a0712; border-radius: 6px; margin: 8px 0; overflow: hidden; }
+.bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent2)); border-radius: 6px; transition: width .3s; }
+.grade-counts { font-size: 13px; color: var(--muted); }
+.tabs { display: flex; gap: 8px; padding: 12px 24px 0; }
+.tab { background: var(--panel); color: var(--text); border: 1px solid var(--line); border-bottom: none; border-radius: 10px 10px 0 0; padding: 10px 18px; font-size: 15px; font-weight: 700; cursor: pointer; }
+.tab.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+main { padding: 0 24px 24px; }
+.view { display: none; background: var(--panel); border: 1px solid var(--line); border-radius: 0 12px 12px 12px; padding: 18px; }
+.view.active { display: block; }
+.controls { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-end; }
+.controls label { font-size: 13px; color: var(--muted); display: flex; flex-direction: column; gap: 4px; }
+.controls input[type="search"], .controls select { background: #0a0712; color: var(--text); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; font-size: 14px; }
+.search input { min-width: 260px; }
+.spoiler-toggle { flex-direction: row !important; align-items: center; gap: 6px !important; color: var(--text) !important; font-size: 14px !important; padding-bottom: 8px; }
+.spacer { flex: 1; }
+button { background: var(--panel2); color: var(--text); border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; font-size: 14px; font-weight: 600; cursor: pointer; }
+button:hover { border-color: var(--accent); }
+button.danger { color: #ff8fa3; }
+.hint { color: var(--muted); font-size: 13px; margin: 12px 0 8px; }
+.layout { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(300px, 1fr); gap: 16px; align-items: start; }
+.trophy-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.trophy { display: grid; grid-template-columns: 22px 1fr auto; gap: 10px; align-items: start; background: var(--panel2); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; cursor: pointer; }
+.trophy:hover { border-color: var(--accent2); }
+.trophy.selected { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.trophy.earned { opacity: .75; }
+.trophy.earned .trophy-name { text-decoration: line-through; }
+.trophy input { margin-top: 3px; width: 18px; height: 18px; accent-color: var(--accent); cursor: pointer; }
+.trophy-name { font-weight: 700; font-size: 15px; }
+.trophy-desc { color: var(--muted); font-size: 13px; margin-top: 2px; }
+.trophy-meta { display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
+.badge { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; padding: 2px 7px; border-radius: 20px; border: 1px solid var(--line); }
+.badge.platinum { color: var(--platinum); border-color: var(--platinum); }
+.badge.gold { color: var(--gold); border-color: var(--gold); }
+.badge.silver { color: var(--silver); border-color: var(--silver); }
+.badge.bronze { color: var(--bronze); border-color: var(--bronze); }
+.badge.missable { color: #ff8fa3; border-color: #ff8fa3; }
+.badge.hidden { color: var(--muted); }
+.badge.kind { color: var(--accent2); border-color: var(--accent2); }
+.detail { position: sticky; top: 12px; background: var(--panel2); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+.detail h2 { margin: 0 0 4px; font-size: 20px; }
+.detail .trophy-desc { font-size: 14px; }
+.detail h3 { margin: 14px 0 4px; font-size: 13px; text-transform: uppercase; letter-spacing: .05em; color: var(--accent2); }
+.detail p { margin: 0; font-size: 14px; }
+.detail .sources { color: var(--muted); font-size: 13px; }
+.detail-empty { color: var(--muted); }
+.lede { color: var(--muted); max-width: 760px; }
+.stage { border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; margin: 12px 0; background: var(--panel2); }
+.stage h3 { margin: 0 0 6px; font-size: 17px; }
+.stage h3 .stage-num { display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 14px; margin-right: 8px; }
+.stage ul { margin: 6px 0 0; padding-left: 20px; font-size: 14px; }
+.stage li { margin: 3px 0; }
+.stage .stage-meta { color: var(--muted); font-size: 13px; }
+.missable-card { border: 1px solid #ff8fa3; border-radius: 12px; padding: 16px; background: #2a1220; }
+.missable-card h3 { margin: 0 0 4px; font-size: 19px; }
+.missable-note { margin-top: 16px; border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; background: var(--panel2); }
+.missable-note h3 { margin: 0 0 6px; }
+.missable-note p { margin: 0; color: var(--muted); }
+footer { padding: 18px 24px 28px; color: var(--muted); font-size: 13px; }
+footer p { margin: 6px 0; max-width: 900px; }
+footer code { color: var(--text); }
+@media (max-width: 900px) { .layout { grid-template-columns: 1fr; } .detail { position: static; } }
